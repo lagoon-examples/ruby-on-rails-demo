@@ -49,7 +49,7 @@ services:
       context: .
       dockerfile: lagoon/nginx.dockerfile
       args:
-        CLI_IMAGE: *cli-image # Inject the name of the cli image
+        RUBY_IMAGE: *cli-image # Inject the name of the cli image
     labels:
       lagoon.type: nginx-php
       lando.type: nginx-drupal
