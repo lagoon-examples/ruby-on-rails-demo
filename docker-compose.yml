@@ -29,25 +29,8 @@ volumes:
 
 services:
 
-  # cli: # cli container, will be used for executing composer and any local commands (drush, drupal, etc.)
-  #   build:
-  #     context: .
-  #     dockerfile: lagoon/cli.dockerfile
-  #   image: &cli-image ${COMPOSE_PROJECT_NAME:-drupal9-base}-cli # this image will be reused as `CLI_IMAGE` in subsequent Docker builds
-  #   labels:
-  #     # Lagoon Labels
-  #     lagoon.type: cli-persistent
-  #     lagoon.persistent.name: nginx # mount the persistent storage of nginx into this container
-  #     lagoon.persistent: /app/web/sites/default/files/ # location where the persistent storage should be mounted
-  #     lando.type: php-cli-drupal
-  #   << : *default-volumes # loads the defined volumes from the top
-  #   user: root
-  #   volumes_from: ### mount the ssh-agent from the pygmy or cachalot ssh-agent. Automatically removed in CI.
-  #     - container:amazeeio-ssh-agent ### Local overrides to mount host SSH keys. Automatically removed in CI.
-  #   environment:
-  #     << : *default-environment # loads the defined environment variables from the top
-
   ruby:
+    image: &cli-image ${COMPOSE_PROJECT_NAME:-ruby-base}-cli
     networks:
       - amazeeio-network
       - default
@@ -56,33 +39,30 @@ services:
       dockerfile: ./lagoon/ruby.dockerfile
     labels:
       lagoon.type: node
-    # ports:
-    #   - "3000:3000"
-    volumes:
-      - .:/app:delegated
+    << : *default-volumes
     environment:
       - LAGOON_LOCALDEV_HTTP_PORT=3000
       - LAGOON_ROUTE=http://ruby.docker.amazee.io
-  # nginx:
-  #   build:
-  #     context: .
-  #     dockerfile: lagoon/nginx.dockerfile
-  #     args:
-  #       CLI_IMAGE: *cli-image # Inject the name of the cli image
-  #   labels:
-  #     lagoon.type: nginx-php-persistent
-  #     lagoon.persistent: /app/web/sites/default/files/ # define where the persistent storage should be mounted too
-  #     lando.type: nginx-drupal
-  #   << : *default-volumes # loads the defined volumes from the top
-  #   << : *default-user # uses the defined user from top
-  #   depends_on:
-  #     - cli # basically just tells docker-compose to build the cli first
-  #   environment:
-  #     << : *default-environment # loads the defined environment variables from the top
-  #     LAGOON_LOCALDEV_URL: *default-url
-  #   networks:
-  #     - amazeeio-network
-  #     - default
+
+  nginx:
+    build:
+      context: .
+      dockerfile: lagoon/nginx.dockerfile
+      args:
+        CLI_IMAGE: *cli-image # Inject the name of the cli image
+    labels:
+      lagoon.type: nginx-php
+      lando.type: nginx-drupal
+    << : *default-volumes # loads the defined volumes from the top
+    << : *default-user # uses the defined user from top
+    depends_on:
+      - ruby 
+    environment:
+      << : *default-environment # loads the defined environment variables from the top
+      LAGOON_LOCALDEV_URL: *default-url
+    networks:
+      - amazeeio-network
+      - default
 
   # php:
   #   build:
