@@ -18,6 +18,11 @@ module App
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.hosts << ENV['LAGOON_DOMAIN']
+    # config.hosts << IPAddr.new("0.0.0.0/0"),        # All IPv4 addresses.
+    # config.hosts << IPAddr.new("::/0"),             # All IPv6 addresses.
+
+    # LAGOON: We bypass all host authorization since this is both dynamic
+    # and taken care of by the infrastructure.
+    config.hosts = nil
   end
 end

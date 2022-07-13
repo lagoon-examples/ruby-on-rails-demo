@@ -41,8 +41,7 @@ services:
       lagoon.type: node
     << : *default-volumes
     environment:
-      - LAGOON_LOCALDEV_HTTP_PORT=3000
-      - LAGOON_ROUTE=http://ruby.docker.amazee.io
+      << : *default-environment # loads the defined environment variables from the top
 
   nginx:
     build:
@@ -57,8 +56,10 @@ services:
     depends_on:
       - ruby 
     environment:
-      << : *default-environment # loads the defined environment variables from the top
-      LAGOON_LOCALDEV_URL: *default-url
+      # << : *default-environment # loads the defined environment variables from the top
+      # - LAGOON_LOCALDEV_URL: *default-url
+      - LAGOON_LOCALDEV_URL=http://ruby.docker.amazee.io
+      - LAGOON_LOCALDEV_HTTP_PORT=8080
     networks:
       - amazeeio-network
       - default
