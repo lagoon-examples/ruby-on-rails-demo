@@ -72,3 +72,4 @@ Run the following commands to trash this app like nothing ever happened.
 ```bash
 # Should be able to destroy our Drupal 9 site with success
 docker-compose down --volumes --remove-orphans
+```
