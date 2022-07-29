@@ -61,11 +61,11 @@ docker-compose exec -T ruby sh -c "rails db:create"
 docker-compose exec -T ruby sh -c "rails db:schema:load" # Loads a database schema file db/schema.rb
 
 # Should be able to show the 'articles' tables
-docker-compose exec -T ruby sh -c "echo \"ActiveRecord::Base.connection.table_exists? 'articles'\" | rails console"
+docker-compose exec -T ruby sh -c "echo QWN0aXZlUmVjb3JkOjpCYXNlLmNvbm5lY3Rpb24udGFibGVfZXhpc3RzPyAnYXJ0aWNsZXMnCg== | base64 -d | rails console"
 
 # Should be able to rebuild and persist the database
 docker-compose build && docker-compose up -d
-docker-compose exec -T ruby sh -c "echo \"ActiveRecord::Base.connection.table_exists? 'articles'\" | rails console"
+docker-compose exec -T ruby sh -c "echo QWN0aXZlUmVjb3JkOjpCYXNlLmNvbm5lY3Rpb24udGFibGVfZXhpc3RzPyAnYXJ0aWNsZXMnCg== | base64 -d | rails console"
 ```
 
 Destroy tests
