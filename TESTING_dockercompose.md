@@ -61,7 +61,6 @@ docker-compose exec -T ruby sh -c "echo \"ActiveRecord::Base.connection.table_ex
 # Should be able to rebuild and persist the database
 docker-compose build && docker-compose up -d
 docker-compose exec -T ruby sh -c "echo \"ActiveRecord::Base.connection.table_exists? 'articles'\" | rails console"
-
 ```
 
 Destroy tests
