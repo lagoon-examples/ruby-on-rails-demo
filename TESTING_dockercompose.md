@@ -16,9 +16,9 @@ docker-compose down
 # Should start up our Lagoon ruby on rails site successfully
 docker-compose build && docker-compose up -d
 
-# Ensure postgres & nginx pod is ready to connect
+# Ensure postgres pod is ready to connect, then sleep for 60s
 docker run --rm --net ruby-on-rails_default amazeeio/dockerize dockerize -wait tcp://postgres:5432 -timeout 1m
-docker run --rm --net ruby-on-rails_default amazeeio/dockerize dockerize -wait tcp://nginx:8080 -timeout 1m
+sleep 60
 ```
 
 Verification commands
