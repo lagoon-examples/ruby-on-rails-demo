@@ -32,8 +32,10 @@ docker-compose exec -T ruby sh -c "rails db:migrate RAILS_ENV=development"
 
 # Should have all the services we expect - nginx
 docker ps --filter label=com.docker.compose.project=ruby-on-rails | grep Up | grep ruby-on-rails_nginx_1
+
 # Should have all the services we expect - postgres
 docker ps --filter label=com.docker.compose.project=ruby-on-rails | grep Up | grep ruby-on-rails_postgres_1
+
 # Should have all the services we expect - ruby
 docker ps --filter label=com.docker.compose.project=ruby-on-rails | grep Up | grep ruby-on-rails_ruby_1
 
