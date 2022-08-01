@@ -13,7 +13,7 @@ Run the following commands to get up and running with this example.
 docker network inspect amazeeio-network >/dev/null || docker network create amazeeio-network
 docker-compose down
 
-# Should start up our Lagoon Drupal 9 site successfully
+# Should start up our Lagoon ruby on rails site successfully
 docker-compose build && docker-compose up -d
 
 # Ensure postgres pod is ready to connect
@@ -26,7 +26,7 @@ Verification commands
 Run the following commands to validate things are rolling as they should.
 
 ```bash
-# Should be able to site install via Drush
+# Should set the Rails ENV
 docker-compose exec -T ruby sh -c "rails db:migrate RAILS_ENV=development"
 
 # Should have all the services we expect
@@ -36,11 +36,10 @@ docker ps --filter label=com.docker.compose.project=ruby-on-rails | grep Up | gr
 
 
 # Should ssh against the ruby container by default
-docker-compose exec -T ruby sh -c "env | grep LAGOON=" | grep ruby-on-rails_ruby_1
+docker-compose exec -T ruby sh -c "env | grep LAGOON=" | grep ruby
 
 # Should have the correct environment set
-docker-compose exec -T ruby sh -c "env" | grep LAGOON_ROUTE | grep ruby-on-rails.docker.amazee.io
-docker-compose exec -T ruby sh -c "env" | grep LAGOON_ENVIRONMENT_TYPE | grep development
+docker-compose exec -T ruby sh -c "env" | grep LAGOON_ROUTE | grep ruby.docker.amazee.io
 
 # Should be running Ruby 3
 docker-compose exec -T ruby sh -c "ruby -v" | grep "ruby 3"
@@ -74,6 +73,6 @@ Destroy tests
 Run the following commands to trash this app like nothing ever happened.
 
 ```bash
-# Should be able to destroy our Drupal 9 site with success
+# Should be able to destroy our rails site with success
 docker-compose down --volumes --remove-orphans
 ```
