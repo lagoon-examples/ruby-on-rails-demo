@@ -34,7 +34,6 @@ docker ps --filter label=com.docker.compose.project=ruby-on-rails | grep Up | gr
 docker ps --filter label=com.docker.compose.project=ruby-on-rails | grep Up | grep ruby-on-rails_postgres_1
 docker ps --filter label=com.docker.compose.project=ruby-on-rails | grep Up | grep ruby-on-rails_ruby_1
 
-
 # Should ssh against the ruby container by default
 docker-compose exec -T ruby sh -c "env | grep LAGOON=" | grep ruby
 
@@ -51,7 +50,7 @@ docker-compose exec -T ruby sh -c "puma --version"
 docker-compose exec -T ruby sh -c "gem list -i puma | gem list -i ruby"
 
 # Should have a running site served by nginx on port 8080
-docker-compose exec -T ruby sh -c "curl -kL http://nginx:8080"
+docker-compose exec -T ruby sh -c "curl -kL http://nginx:8080" | grep "Articles"
 
 # Should be able to db-export and db-import the database
 docker-compose exec -T ruby sh -c "rails db:schema:dump" # Creates a database schema file db/schema.rb
