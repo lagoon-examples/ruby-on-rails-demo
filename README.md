@@ -12,3 +12,4 @@ The important files to examine are
 ## TODO:
 * Add compiled assets demonstration in `ruby` container
 * Long lived queue/job service
+*
