@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-
+  skip_before_action :verify_authenticity_token, only: [:create, :update]
   http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
 
   def index

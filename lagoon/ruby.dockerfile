@@ -1,4 +1,4 @@
-FROM testlagoon/ruby-3.1:experimental
+FROM uselagoon/ruby-3.3:latest
 
 ENV LAGOON=ruby
 

@@ -63,7 +63,7 @@ services:
       - default
 
   postgres:
-    image: uselagoon/postgres-11-drupal:latest
+    image: uselagoon/postgres-15-drupal:latest
     labels:
       lagoon.type: postgres
       lando.type: postgres-drupal
