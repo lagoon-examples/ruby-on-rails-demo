@@ -5,11 +5,11 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV.fetch("POSTGRES_USERNAME") { "drupal" } %>
-  password: <%= ENV.fetch("POSTGRES_PASSWORD") { "drupal" } %>
+  username: <%= ENV.fetch("POSTGRES_USERNAME") { "lagoon" } %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD") { "lagoon" } %>
   host: <%= ENV.fetch("POSTGRES_HOST") { "postgres" } %>
-  database: <%= ENV.fetch("('POSTGRES_DATABASE'") { "drupal" } %>
-
+  database: <%= ENV.fetch("POSTGRES_DATABASE") { "lagoon" } %>
+  port: <%= ENV.fetch("POSTGRES_PORT") { "5432" } %>
 
 development:
   <<: *default
