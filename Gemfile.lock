@@ -110,7 +110,7 @@ GEM
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.7.2)
-    irb (1.13.2)
+    irb (1.14.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     jbuilder (2.12.0)
@@ -131,10 +131,10 @@ GEM
     marcel (1.0.4)
     matrix (0.4.2)
     mini_mime (1.1.5)
-    minitest (5.24.1)
+    minitest (5.25.1)
     msgpack (1.7.2)
     mutex_m (0.2.0)
-    net-imap (0.4.13)
+    net-imap (0.4.14)
       date
       net-protocol
     net-pop (0.1.2)
