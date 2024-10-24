@@ -243,23 +243,26 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  bootsnap (~> 1.18)
-  capybara (>= 3.40)
-  debug (~> 1.9)
-  importmap-rails (~> 2.0)
-  jbuilder (~> 2.13)
-  logstash-logger (~> 0.26)
-  pg (~> 1.5)
-  puma (~> 6.4)
-  rails (~> 7.2.1)
-  selenium-webdriver (~> 4.25)
-  sprockets-rails (>= 3.5)
-  sqlite3 (~> 2.1)
-  stimulus-rails (~> 1.3)
-  turbo-rails (~> 2.0)
+  bootsnap (>= 1.18.4)
+  capybara (>= 3.40.0)
+  debug (>= 1.9.2)
+  importmap-rails (>= 2.0.3)
+  jbuilder (>= 2.13)
+  logstash-logger (>= 0.26.1)
+  pg (>= 1.5.9)
+  puma (>= 6.4.3)
+  rails (>= 7.2.1.2)
+  selenium-webdriver (>= 4.25.0)
+  sprockets-rails (>= 3.5.2)
+  sqlite3 (>= 2.1.1)
+  stimulus-rails (>= 1.3.4)
+  turbo-rails (>= 2.0.11)
   tzinfo-data
-  web-console (>= 4.2.0)
-  webdrivers (~> 5.2)
+  web-console (>= 4.2.1)
+  webdrivers (>= 5.2.0)
+
+RUBY VERSION
+   ruby 3.3.5p100
 
 BUNDLED WITH
    2.5.18
