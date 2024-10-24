@@ -251,7 +251,7 @@ DEPENDENCIES
   logstash-logger (~> 0.26)
   pg (~> 1.5)
   puma (~> 6.4)
-  rails (~> 7.2.1)
+  rails (~> 7.2.1, >= 7.2.1.2)
   selenium-webdriver (~> 4.25)
   sprockets-rails (>= 3.5)
   sqlite3 (~> 2.1)
@@ -260,6 +260,9 @@ DEPENDENCIES
   tzinfo-data
   web-console (>= 4.2.0)
   webdrivers (~> 5.2)
+
+RUBY VERSION
+   ruby 3.3.5p100
 
 BUNDLED WITH
    2.5.18
