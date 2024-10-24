@@ -245,7 +245,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (~> 1.18)
   capybara (>= 3.40)
-  debug (~> 1.9)
+  debug (~> 1.9, >= 1.9.2)
   importmap-rails (~> 2.0)
   jbuilder (~> 2.13)
   logstash-logger (~> 0.26)
@@ -260,6 +260,9 @@ DEPENDENCIES
   tzinfo-data
   web-console (>= 4.2.0)
   webdrivers (~> 5.2)
+
+RUBY VERSION
+   ruby 3.3.5p100
 
 BUNDLED WITH
    2.5.18
