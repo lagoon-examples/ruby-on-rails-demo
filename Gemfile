@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby ">= 3.3.0"
+ruby ">= 3.4.2"
 
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
