@@ -44,6 +44,8 @@ services:
       dockerfile: lagoon/nginx.dockerfile
       args:
         RUBY_IMAGE: *cli-image # Inject the name of the cli image
+      additional_contexts:
+        cli: 'service:ruby'
     labels:
       lagoon.type: nginx
     << : *default-volumes # loads the defined volumes from the top
@@ -57,6 +59,7 @@ services:
     networks:
       - amazeeio-network
       - default
+
 
   postgres:
     image: uselagoon/postgres-15:latest
