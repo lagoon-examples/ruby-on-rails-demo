@@ -6,7 +6,7 @@ RUN apk add --no-cache --virtual .build-deps \
       build-base sqlite sqlite-dev \
       curl-dev curl ruby-dev make \
       zlib-dev libxml2-dev libxslt-dev tzdata yaml-dev sqlite-dev postgresql-dev mysql-dev \
-      ruby ruby-io-console ruby-json yaml nodejs \
+      ruby yaml nodejs \
     && gem install webrick puma bundler \
     && apk add --no-cache \
         postgresql-client \
